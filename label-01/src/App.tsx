@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./Error/ErrorPage";
 import Main from "./routes/Main/Main";
@@ -10,6 +10,9 @@ function App() {
         path: "/",
         errorElement: <ErrorPage />,
         element: <Main />,
+      },
+      {
+        path: "printview",
       },
     ],
     { basename: "/labels/" }

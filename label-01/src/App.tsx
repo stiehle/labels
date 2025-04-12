@@ -2,8 +2,12 @@ import "./App.scss";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./Error/ErrorPage";
 import Main from "./routes/Main/Main";
+import labelManagementReducer from "./hooks/labelManagementReducer";
+import { useReducer } from "react";
+import { LabelContext } from "./context/LabelContext";
 
 function App() {
+  const [label, labelDispatch] = useReducer(labelManagementReducer, []);
   const router = createBrowserRouter(
     [
       {
@@ -20,7 +24,9 @@ function App() {
 
   return (
     <>
-      <RouterProvider router={router} />
+      <LabelContext.Provider value={{ label, labelDispatch }}>
+        <RouterProvider router={router} />
+      </LabelContext.Provider>
     </>
   );
 }

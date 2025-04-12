@@ -1,12 +1,13 @@
-import QrcodeImage from "../../components/Qrcode/Qrcode";
+import LabelInput from "../../components/LabelInput/Labelinput";
+import LabelOverview from "../../components/LabelsOverview/LabelsOverview";
 import "./Main.scss";
 
 function Main() {
   return (
     <div>
-      <h1>Main</h1>
       <p>This is the main page.</p>
-      <QrcodeImage />
+      <LabelInput />
+      <LabelOverview />
     </div>
   );
 }

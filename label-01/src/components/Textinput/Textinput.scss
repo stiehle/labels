@@ -1,0 +1,43 @@
+@use "/src/styles/colors" as *;
+
+.text-input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.2rem;
+
+  &--short {
+    width: 6rem;
+  }
+
+  &--middle {
+    width: 12rem;
+  }
+
+  &--long {
+    width: 16rem;
+  }
+
+  &--xxl {
+    width: 30rem;
+  }
+
+  &__text {
+    font-size: 1.2rem;
+    padding: 0.2rem;
+    border-radius: 10px;
+  }
+
+  &__label {
+    color: $text-input-label-font-color;
+    background-color: $text-input-label-background-color;
+    width: fit-content;
+    border-radius: 10px;
+    padding: 0 0.5rem;
+  }
+
+  &__error {
+    color: $date-input-label-error;
+    font-size: 1rem;
+  }
+}

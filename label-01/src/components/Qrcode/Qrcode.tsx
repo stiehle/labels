@@ -1,14 +1,18 @@
 import { BarcodeFormat, MultiFormatWriter } from "@zxing/library";
 import "./Qrcode.scss";
 
-function QrcodeImage() {
+type Props = {
+  text: string;
+};
+
+function QrcodeImage({ text: article }: Props) {
   function getQrcode() {
     let base64Image = "";
     try {
       const writer = new MultiFormatWriter();
-      const qrCodeData = "123456 Your QR Code Data";
+      const qrCodeData = article;
       const hints = new Map();
-      hints.set("MARGIN", 1);
+      hints.set("MARGIN", 0);
       const bitMatrix = writer.encode(qrCodeData, BarcodeFormat.QR_CODE, 200, 200, hints);
 
       const width = bitMatrix.getWidth();
@@ -26,11 +30,14 @@ function QrcodeImage() {
       }
       const imageData = new ImageData(pixels, width, height);
       const canvas = document.createElement("canvas");
-      canvas.width = width;
-      canvas.height = height;
+      // canvas.width = width;
+      // canvas.height = height;
+      canvas.width = width - 60;
+      canvas.height = height - 60;
       const ctx = canvas.getContext("2d");
       if (ctx) {
-        ctx.putImageData(imageData, 0, 0);
+        // ctx.putImageData(imageData, 0, 0);
+        ctx.putImageData(imageData, -30, -30);
         const dataUrl = canvas.toDataURL("image/png");
         base64Image = dataUrl.split(",")[1];
       }

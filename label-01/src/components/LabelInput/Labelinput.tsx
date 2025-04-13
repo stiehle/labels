@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useFormInput } from "../../hooks/useFormInput";
 import TextInput from "../Textinput/Textinput";
+import { useNavigate } from "react-router-dom";
 
 import "./LabeInput.scss";
 import { LabelContext } from "../../context/LabelContext";
@@ -10,15 +11,22 @@ function LabelInput() {
   const articleText = useFormInput("", true);
 
   const { labelDispatch } = useContext(LabelContext);
+  const navigate = useNavigate();
 
   function newLabel() {
     const newLabel = {
-      id: Math.floor(Math.random() * 1000),
+      // id: Math.floor(Math.random() * 1000),
+      id: Date.now(),
       articleNumber: Number(articleNumber.value),
       articleText: articleText.value,
     };
     console.log(newLabel);
     labelDispatch({ type: "ADD_LABEL", label: newLabel });
+  }
+
+  function printView() {
+    console.log("printView");
+    navigate("printview");
   }
 
   return (
@@ -40,8 +48,13 @@ function LabelInput() {
         name={"Artikel Text"}
         size={"xxl"}
       />
-      <div className="label-input__button">
-        <button onClick={newLabel}>Neues Etikett erstellen</button>
+      <div className="label-input__wrapper">
+        <div className="label-input__button">
+          <button onClick={newLabel}>Neues Etikett erstellen</button>
+        </div>
+        <div className="label-input__button">
+          <button onClick={printView}>Druckansicht</button>
+        </div>
       </div>
     </div>
   );

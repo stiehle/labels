@@ -4,8 +4,7 @@ import "./Main.scss";
 
 function Main() {
   return (
-    <div>
-      <p>This is the main page.</p>
+    <div className="main">
       <LabelInput />
       <LabelOverview />
     </div>

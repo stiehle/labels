@@ -1,8 +1,17 @@
 .label-input {
   border: 2px solid #002fff;
   padding: 1rem;
+  // width: 100%;
 
   &__button {
     margin-top: 1rem;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
   }
 }

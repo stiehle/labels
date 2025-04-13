@@ -6,6 +6,8 @@ import labelManagementReducer from "./hooks/labelManagementReducer";
 import { useReducer } from "react";
 import { LabelContext } from "./context/LabelContext";
 
+import PrintView from "./routes/PrintView/PrintView";
+
 function App() {
   const [label, labelDispatch] = useReducer(labelManagementReducer, []);
   const router = createBrowserRouter(
@@ -17,6 +19,7 @@ function App() {
       },
       {
         path: "printview",
+        element: <PrintView />,
       },
     ],
     { basename: "/labels/" }

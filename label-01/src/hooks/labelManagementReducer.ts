@@ -33,6 +33,7 @@ export default function labelManagementReducer(prevState: LabelManagementState, 
     }
   }
   console.log("updatedState", updatedState);
+  //return updatedState.reverse();
 
-  return updatedState.reverse();
+  return updatedState;
 }
